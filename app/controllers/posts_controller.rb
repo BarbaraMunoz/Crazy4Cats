@@ -13,7 +13,6 @@ class PostsController < ApplicationController
     end
   end
 
-  
 
   # Dar Me gusta
   def upvote
@@ -90,12 +89,15 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     
-    if current_user == @post.user
-      @post.destroy
-      redirect_to root_path, notice: 'Post eliminado correctamente.'
-    else
-      redirect_to root_path, alert: 'No tienes permiso para eliminar este post.'
-    end
+      if current_user.admin?
+        @post.destroy
+        redirect_to root_path, notice: 'Post eliminado correctamente.'
+      elsif current_user == @post.user
+        @post.destroy
+        redirect_to root_path, notice: 'Post eliminado correctamente.'
+      else
+        redirect_to root_path, alert: 'No tienes permiso para eliminar este post.'
+      end
   end
 
 

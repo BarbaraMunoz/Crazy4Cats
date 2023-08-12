@@ -1,9 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  content: MyText
+  content: This is a comment on the first post.
   post: one
+  user: one
 
 two:
-  content: MyText
+  content: This is a comment on the second post.
   post: two
+  user: two
+
+
+
+

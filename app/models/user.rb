@@ -9,5 +9,8 @@ class User < ApplicationRecord
         has_many :posts
         has_many :comments
         acts_as_voter
-        validates :display_name, presence: true, if: -> { !username.present? && !user_signed_in? }
+
+        def admin?
+          role == "admin"
+        end
 end

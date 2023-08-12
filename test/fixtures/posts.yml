@@ -1,11 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  content: MyText
+  title: First Post
+  content: This is the content of the first post.
   user: one
 
 two:
-  title: MyString
-  content: MyText
+  title: Second Post
+  content: This is the content of the second post.
   user: two
+
+

@@ -37,31 +37,26 @@ class CommentsController < ApplicationController
   def edit
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
-    authorize_comment_owner!(@comment)
   end
 
   # PATCH/PUT /comments/1 or /comments/1.json
   def update
-    authorize_comment_owner!(@comment)
     if @comment.update(comment_params)
       redirect_to post_path(@comment.post), notice: 'Comentario actualizado correctamente.'
     else
-      render :edit
+      redirect_to post_path(@comment.post), alert: 'Comentario no se pudo actualizar'
     end
   end
 
   # DELETE /comments/1 or /comments/1.json
   def destroy
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.find(params[:id])
-    
-    if @comment.user.nil? || (@comment.user == current_user)
-      @comment.destroy
-      redirect_to post_path(@post), notice: 'Comentario eliminado correctamente.'
+    if @comment.destroy
+      redirect_to post_path(@comment.post), notice: 'Comentario eliminado correctamente.'
     else
-      redirect_to post_path(@post), alert: 'No tienes permiso para eliminar este comentario.'
+      return
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -70,7 +65,7 @@ class CommentsController < ApplicationController
     end
 
     def authorize_comment_owner!(comment)
-      unless user_signed_in? && (comment.user == current_user)
+      unless user_signed_in? && (comment.user == current_user) ||  current_user.admin? 
         # Verifica si el usuario no está autenticado pero es el autor del comentario
         unless !user_signed_in? && comment.user.nil?
           redirect_to post_path(comment.post), alert: 'No tienes permiso para realizar esta acción.'

@@ -3,6 +3,15 @@
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
+  def create
+    super do |user|
+      if user && user.persisted?
+        user.role = 1
+        user.save
+      end
+    end
+  end
+
   # GET /resource/sign_in
   # def new
   #   super

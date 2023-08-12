@@ -11,7 +11,7 @@
     </div>
   <% end %>
   <div class="edit-delete-links pt-5">
-  <% if user_signed_in? && current_user == @post.user %>
+  <% if user_signed_in? && (current_user == @post.user || current_user.admin?) %>
     <%= link_to "Editar", edit_post_path(@post), class: "edit-link"  %>
     <%= button_to "Eliminar", @post, method: :delete, data: { confirm: "¿Estás seguro de eliminar este post?" }, class: "delete-button" %>
   <% end %>
@@ -48,7 +48,7 @@
         </strong>
         <div class="comment-content">
           <p><%= comment.content %></p>
-          <% if user_signed_in? && (comment.user == current_user) %>
+          <% if user_signed_in? && (current_user == comment.user || current_user.admin?) %>
             <div class="edit-delete-links">
               <%= link_to "Editar", edit_post_comment_path(@post, comment), class: "edit-link" %>
               <%= button_to "Eliminar", post_comment_path(comment.post, comment), method: :delete, data: { confirm: "¿Estás seguro de eliminar este comentario?" }, class: "delete-button" %>

@@ -1,5 +1,7 @@
 class Post < ApplicationRecord
 
+  validates :title, presence: true
+
   include PgSearch::Model
   pg_search_scope :search_by_title_and_username,
                   against: [:title],
@@ -15,6 +17,5 @@ class Post < ApplicationRecord
   has_many_attached :images
 
   acts_as_votable
-  has_many :likes
 
 end

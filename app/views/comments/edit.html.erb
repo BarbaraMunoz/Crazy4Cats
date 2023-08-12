@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+<h1 class="center-text mb-5">Editar comentario</h1>
+
+<%= render 'form', comment: @comment, post: @post %>
+
+
+<br>
+
+<div class="back-links">
+  <%= link_to "Volver atrás", request.referer, class: "back-link" %>
+  <%= link_to "Volver a Feed", posts_path, class: "feed-link" %>
+</div>

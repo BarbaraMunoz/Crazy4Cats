@@ -1,0 +1,215 @@
+<p style="color: green"><%= notice %></p>
+<!--Grilla con 3 columnas-->
+  <div class="container">
+        <div class="row">
+<!---Columna Izquierda-->
+    <% if user_signed_in? %>
+    <div class="col-12 col-lg-3 pt-5 pe-5">
+      <div class="card mb-4" >
+        <%= image_tag("cat1", class:"d-block w-100 img-fluid") %>
+          <div class="card-body text-center ">
+            <h5 class="card-title">Gatuno Fashion</h5>
+            <p class="card-text text-justify mb-2">I wish i was a little bit taller, wish i was a baller, wish i had a girl… also.</p>
+            <ul class="list-unstyled nav justify-content-center">
+              <a href="#" class="text-dark text-decoration-none"> <li class="nav-item">Amigos <br> <strong>12M</strong></li></a>
+              <a href="#" class="text-dark text-decoration-none"> <li class="nav-item">Enemigos <br> <strong>1</strong></li></a> 
+            </ul>
+            </div>
+      </div>
+
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="mb-3 card-title">Sobre ti</h5>
+          <p class="card-text"> <i class="fas fa-calendar-week mr-2"></i> Mascota de<a href="#" class="text-decoration-none"> tu gato</a></p>
+          <p class="card-text"> <i class="fas fa-user-friends mr-2"></i> Amistad con <a href="#" class="text-decoration-none">obama</a></p>
+          <p class="card-text"> <i class="far fa-building mr-2"></i> Trabajo en <a href="#" class="text-decoration-none">Github</a></p>
+          <p class="card-text"> <i class="fas fa-home mr-2"></i> Vivo en <a href="#" class="text-decoration-none">Mi casa</a></p>
+          <p class="card-text"> <i class="fas fa-map-marker mr-2"></i> De <a href="#" class="text-decoration-none">Santiago,Chile</a></p>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Tus Fotos</h5>
+          <div class="row">
+            <div class="col-6 p-1">
+              <%= image_tag("cat1", class:"d-block w-100 img-fluid") %>
+              <%= image_tag("cat1", class:"d-block w-100 img-fluid") %>
+              <%= image_tag("cat1", class:"d-block w-100 img-fluid") %>
+            </div>
+                                
+            <div class="col-6 p-1">
+              <%= image_tag("cat1", class:"d-block w-100 img-fluid") %>
+              <%= image_tag("cat1", class:"d-block w-100 img-fluid") %>
+              <%= image_tag("cat1", class:"d-block w-100 img-fluid") %>
+            </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <% else %>
+        <div class="col-12 col-lg-3">
+            <!-- Contenido para usuarios no logueados -->
+            <div class="card mb-4">
+              <div class="card-body">
+                <h6 class="card-title">Rayban ft. Mishis</h6>
+                <%= image_tag("cat9", class:"d-block w-100 img-fluid") %>
+                  <h6 class="py-3">Si no come zanahoria, no tiene vista de conejo</h6>
+                  <p class="card-text text-justify">Prueba los nuevos Mishi Glasses con el puro estilo del gato Benito.</p>
+                <a href="#" class="btn btn-outline-info card-link btn-sm">Cómpralos ya!</a>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+<!--Fin de Columna Izquierda-->
+
+
+<!--Columna media-->
+<div class="col-12 col-lg-6 align-content-center">
+    <div class="center-text">
+      <h1>MishisPosts</h1>
+    </div>
+
+
+      
+      <!--Barra de búsqueda Gem pg-search -->
+      <%= form_with url: posts_path, method: :get do |form| %> <!-- Gema search -->
+  <!-- Cuadro de búsqueda de posts anteriores -->
+        <div class="card mb-2">
+          <div class="card-body">
+            <div class="input-group">
+              <%= form.text_field :buscar, class: "form-control buscar", placeholder: "Buscar posts anteriores", value: @filtro %>
+              <div class="input-group-append">
+                <%= form.button type: :submit, class: "btn btn-outline-primary" do %>
+                  <i class="fas fa-camera"></i>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+      <!--Botón Nuevo Post-->
+      <div>
+        <% if user_signed_in? %>
+          <%= link_to "Nuevo Post", new_post_path, class: "btn btn-gradient mb-5" %>
+        <% else %>
+          <%= link_to "Ingresa a tu sesión para Mishipostear", new_user_session_path, class: "btn btn-gradient mb-5" %>
+        <% end %>
+      </div>
+
+      <!--Gem pg-search-->
+      <%== pagy_bootstrap_nav(@pagy) %>
+      <!-- Posts -->
+      <div id="posts" class="center-content">
+        <% @posts.each do |post| %>
+          <div class="col-12 col-lg-6">
+            <div class="middle-column">
+              <div class="card wider-card">
+                <div class="card-header bg-transparent">
+                <!-- Agregar el nombre del usuario y su avatar -->
+                  <div class="user-info pb-3">
+                    <div class="user-avatar">
+                      <%= image_tag 'avatar.png', class: 'avatar-image' %>
+                    </div>
+                    <div class="user-name">
+                      Publicado por <%= post.user&.username || 'Usuario Desconocido' %>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <% if post.images.attached? %>
+                    <div class="post-images">
+                      <% post.images.each do |image| %>
+                    <%= link_to post_path(post) do %>
+                      <%= image_tag image, class: 'card-img-top', style: 'width: 600px; height: auto;' %>
+                    <% end %>
+                  <% end %>
+                    </div>
+                  <% end %>
+                  <h2 class="card-title pt-5"><%= post.title %></h2>
+                  <p class="small-title"><%= post.content %></p>
+                  <hr class="post-divider">
+
+
+                  <!-- Renderizar los enlaces de votación usando los botones -->
+                  <div class="voting-buttons">
+                    <%= button_to upvote_post_path(post), method: :patch, remote: true, data: { disable_with: "voting..." }, class: "btn btn-primary like-btn" do %>
+                      <i class="fas fa-thumbs-up"></i>
+                      <span class="vote-count"><%= post.cached_votes_up %></span>
+                    <% end %>
+
+                    <%= button_to downvote_post_path(post), method: :patch, remote: true, data: { disable_with: "voting..." }, class: "btn btn-danger dislike-btn" do %>
+                      <i class="fas fa-thumbs-down"></i>
+                      <span class="vote-count"><%= post.cached_votes_down %></span>
+                    <% end %>
+                  </div>
+
+                  <%= link_to 'Ver Comentarios', post %>
+                  <hr>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <!--Gem pg-search-->
+      <%== pagy_bootstrap_nav(@pagy) %>
+    </div>
+    
+<!--Fin columna Posts-->
+
+<!---Columna Derecha----->
+        
+  <div class="col-12 col-lg-3 pt-5 ps-5">
+
+        <div class="card mb-4" >
+            <div class="card-body">
+                <h6 class="card-title">Viaje + Hotel Gatuno</h6>
+                <p class="card-text text-justify"> <span class="h6">Es tiempo de visitar París.</span> París para relajarse, comer y gatos en el Louvre. Además oímos que la gente es cool allá. Qué estás esperando?</p>
+                <a href="#" class="btn btn-outline-info card-link btn-sm">Comprar ticket</a>
+            </div>
+        </div>
+
+
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+              <h6 class="card-title ">Te podría gustar</h6>
+              <p>GatoBenito @benitogarrita</p>
+              <a href="#" class="btn btn-outline-info btn-sm mb-3"><i class="fas fa-user-friends"></i>Seguir</a>
+              <p>Don Gato y su Pandilla @DonGato</p>
+              <a href="#" class="btn btn-outline-info  btn-sm"><i class="fas fa-user-friends"></i>Seguir</a>
+            </div>
+            <div class="card-footer">
+                <p class="lead" style="font-size:16px;">Félix de verdad adora a estos nerds, nadie sabe por qué.</p>
+            </div>
+        </div>
+
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <p>&copy; 2023 Crazy4Cats
+                        <a href="#">About</a>
+                        <a href="#">Help</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Privacy</a>
+                        <a href="#">Cookies</a>
+                        <a href="#">Ads </a>
+                        <a href="#">Info</a>
+                        <a href="#">Brand</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Status</a>
+                        <a href="#">Apps</a>
+                        <a href="#">Jobs</a>
+                        <a href="#">Advertise</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

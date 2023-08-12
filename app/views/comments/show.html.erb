@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+
+
+<%= render @comment %>
+
+<div>
+  <%= link_to "Editar", edit_comment_path(@comment) %> |
+  <%= link_to "Back to comments", comments_path %>
+
+  <%= link_to "Eliminar este comentario", post_comment_path(@post, comment), method: :delete, data: { confirm: "¿Estás seguro de eliminar este comentario?" } %>
+
+</div>

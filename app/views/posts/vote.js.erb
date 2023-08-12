@@ -1,0 +1,4 @@
+document.getElementById("upvote-<%= @post.id %>").innerHTML = "<%= j render "posts/upvote_link", post: @post %>";
+document.getElementById("downvote-<%= @post.id %>").innerHTML = "<%= j render "posts/downvote_link", post: @post %>";
+document.getElementById("votes_up-<%= @post.id %>").innerHTML = "<%= j render "posts/votes_up", post: @post %>";
+document.getElementById("votes_down-<%= @post.id %>").innerHTML = "<%= j render "posts/votes_down", post: @post %>";

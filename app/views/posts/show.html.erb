@@ -1,0 +1,77 @@
+<p class="error-message"><%= flash[:error] %></p>
+
+<div class="post-container">
+  <h1><%= @post.title %></h1>
+
+  <% if @post.images.attached? %>
+    <div class="post-images">
+      <% @post.images.each do |image| %>
+        <%= image_tag image, class: 'img-fluid' %>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="edit-delete-links pt-5">
+  <% if user_signed_in? && current_user == @post.user %>
+    <%= link_to "Editar", edit_post_path(@post), class: "edit-link"  %>
+    <%= button_to "Eliminar", @post, method: :delete, data: { confirm: "¿Estás seguro de eliminar este post?" }, class: "delete-button" %>
+  <% end %>
+  </div>
+
+  <p><%= @post.content %></p>
+  <div class="user-info">
+    Publicado por <%= @post.user.username %> , <%= @post.created_at.strftime('%d de %B de %Y') %>
+  </div>
+
+  <hr class="post-divider">
+  <div class="voting-buttons">
+    <%= button_to upvote_post_path(@post), method: :patch, remote: true, data: { disable_with: "voting..." }, class: "btn btn-primary like-btn" do %>
+      <i class="fas fa-thumbs-up"></i>
+      <span><%= @post.cached_votes_up %></span>
+    <% end %>
+
+    <%= button_to downvote_post_path(@post), method: :patch, remote: true, data: { disable_with: "voting..." }, class: "btn btn-danger dislike-btn" do %>
+      <i class="fas fa-thumbs-down"></i>
+      <span><%= @post.cached_votes_down %></span>
+    <% end %>
+  </div>
+
+
+<!-- Comentarios -->
+<div class="comments-section">
+  <% @comments.each do |comment| %>
+    <div class="comment">
+    <p class="comment-time"><%= comment.created_at.strftime('%H:%M %p') %></p>
+      <div class="user-info">
+        <%= image_tag("avatar", class: "rounded-circle", style: "width:6%") %>
+        <strong>
+          <%= comment.user ? comment.user.username : 'Guest' %>
+        </strong>
+        <div class="comment-content">
+          <p><%= comment.content %></p>
+          <% if user_signed_in? && (comment.user == current_user) %>
+            <div class="edit-delete-links">
+              <%= link_to "Editar", edit_post_comment_path(@post, comment), class: "edit-link" %>
+              <%= button_to "Eliminar", post_comment_path(comment.post, comment), method: :delete, data: { confirm: "¿Estás seguro de eliminar este comentario?" }, class: "delete-button" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+    <div class="comment-form">
+      <%= form_for [@post, @comment] do |f| %>
+        <%= f.text_area :content, placeholder: 'Escribe tu comentario...' %><br>
+        <%= f.submit 'Agregar comentario', class: "btn btn-gradient" %>
+      <% end %>
+    </div>
+  </div>
+
+    <div class="feed-link-container">
+    <%= link_to "Volver atrás", :back, class: "back-link" %>
+    <%= link_to "Volver Feed", posts_path, class: "feed" %>
+    </div>
+

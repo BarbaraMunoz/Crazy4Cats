@@ -1,0 +1,724 @@
+.error-message {
+    color: red;
+  }
+  
+/* Body */
+body {
+    margin-top: 200px;
+}
+
+
+/* Alinear los elementos del navbar */
+.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-item {
+    margin-right: 10px;
+    padding-top: 5px;
+}
+
+  /* Estilos para los enlaces del navbar */
+
+.custom-logo {
+    height: 70px; /* Ajusta la altura deseada para el logo */
+    display: flex; /* Permite que la imagen ocupe todo el espacio verticalmente */
+    align-items: center; /* Centra verticalmente la imagen */
+}
+
+.logo-image {
+    height: 180%; /* Hace que la imagen ocupe todo el espacio verticalmente */
+     /* Permite que el ancho se ajuste automáticamente para mantener la proporción de la imagen */
+}
+
+.bg-nav {
+    background: linear-gradient(to bottom, #7e4a9c, #e65538);
+  }
+  
+
+.navbar {
+    font-size: 16px; /* Ajusta el valor para cambiar el tamaño de fuente */
+}
+
+.nav-link {
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: #ffffff;
+}
+
+  /* Estilos para el botón del dropdown */
+.dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+}
+
+  /* Estilos para el menú del dropdown */
+.dropdown-menu {
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+    color: #333;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #f1f1f1;
+}
+
+/* Welcome index */
+.carousel-inner {
+    text-align: center;
+    margin-top: -85px;
+}
+
+.carousel-item img {
+    max-height: 500px;
+    width: auto;
+    opacity: 80%;
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.352);
+    padding: 20px;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  
+  .carousel-caption h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .carousel-caption h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+  }
+  
+
+/* Sección Posts */
+
+.card {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #f8f9fa;
+  }
+
+.center-text {
+    text-align: center;
+}
+
+/* Estilo para el botón Postear */
+.btn-gradient {
+    background: linear-gradient(45deg, #FFA500, #FFD700);
+    color: white;
+    border: none;
+    padding: 10px 120px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 15px 2px 0 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-gradient:hover {
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+
+/*Cards de post centrada*/
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Estilos para las tarjetas de post */
+.card.wider-card {
+    width: 200%;
+    margin-left: -150px;
+    margin-bottom: 70px; /* Espacio entre las tarjetas */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #f8f9fa;
+  }
+  
+  
+  /* Ajusta el tamaño de las imágenes */
+  .card.wider-card .post-images img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ajusta la imagen al tamaño del contenedor */
+    max-height: 300px; /* Limita la altura máxima de la imagen */
+  }
+  
+  
+  .card-img-top {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+
+  /* Ajusta el tamaño del texto y botones */
+  .card.wider-card .card-body {
+    padding: 10px; /* Espacio interno en el cuerpo de la tarjeta */
+  }
+  
+  .card.wider-card p {
+    font-size: 16px; /* Tamaño del texto */
+    margin-bottom: 30px; /* Espacio entre párrafos */
+    margin-top: 30px;
+  }
+  
+  .card.wider-card .voting-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Espacio entre los botones de votación */
+    margin-bottom: 30px;
+  }
+  
+  .card.wider-card .like-btn,
+  .card.wider-card .dislike-btn {
+    padding: 8px 15px; /* Ajusta el espaciado de los botones */
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .card.wider-card .like-btn {
+    background: linear-gradient(to bottom, #3498db, #2980b9);
+    color: white;
+    margin-right: 10px;
+  }
+  
+  .card.wider-card .dislike-btn {
+    background: linear-gradient(to bottom, #f86b6b, #dc3545);
+    color: white;
+  }
+
+
+
+
+/*Barra de búsqueda */
+.form-inline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form-control-md {
+    flex-grow: 1;
+}
+
+.input-group-text {
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+    color: #495057;
+}
+
+.input-group-text i {
+    color: #6c757d;
+}
+
+.input-group-append .input-group-text {
+    border-left: none;
+}
+
+  /* Estilos para el ícono de la cámara */
+.fa-camera {
+    font-size: 24px;
+}
+
+
+/* Imagen Post */
+
+/* Título de card post */
+.small-title {
+    font-size: 18px; /* Ajusta el tamaño del título según tus preferencias */
+    margin-bottom: 5px; /* Ajusta el margen inferior según tus preferencias */
+}
+
+
+.post-images {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+  }
+  
+  .post-images img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  /* Estilo para la imagen del avatar */
+.avatar-image {
+    width: 40px; /* Tamaño deseado para el avatar */
+    height: 40px;
+    border-radius: 50%; /* Para hacer que la imagen sea redonda */
+    object-fit: cover; /* Ajustar la imagen al contenedor manteniendo la proporción */
+    margin-right: 10px; /* Espacio entre la imagen y el nombre de usuario */
+  }
+  
+  /* Estilos para el contenedor del post en la vista show */
+  .post-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .post-container h1 {
+    font-size: 24px;
+    margin: 20px;
+  }
+  
+  .post-container .user-info {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+
+  
+  .post-container p {
+    font-size: 20px;
+    margin-top: 80px;
+  }
+
+  .post-divider {
+    margin: 20px 0; /* Margen arriba y abajo */
+    border: none; /* Quita el borde predeterminado */
+    border-top: 2px solid #ccc; /* Establece el estilo de la línea */
+  }
+  
+  /* Botones Like/Dislike */
+  .like-btn {
+    background: linear-gradient(to bottom, #3498db, #2980b9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 30px;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    margin-right: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+  
+  .dislike-btn {
+    background: linear-gradient(to bottom, #f86b6b, #dc3545);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 30px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .vote-count {
+    margin-left: 5px;
+    font-weight: bold;
+  }
+  
+  /* Estilos para el contenedor de los botones de votación */
+  .voting-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+  }
+
+/* Estilos para los comentarios */
+.comments-section {
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    margin-top: 20px;
+  }
+  
+  .comment {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .comment strong {
+    font-weight: bold;
+    color: #385898;
+  }
+  
+  .comment p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  .comment .comment-time {
+    font-size: 11px; /* Tamaño de fuente más pequeño */
+    color: #888; /* Color gris */
+    margin-bottom: 20px;
+  }
+  
+  .comment-form {
+    margin-top: 20px;
+  }
+  
+  .comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: vertical;
+  }
+  
+  .comment-form input[type="submit"] {
+    margin-top: 10px;
+    background-color: #385898;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .comment-form input[type="submit"]:hover {
+    background-color: #2d4470;
+  }
+  
+  .back-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #385898;
+    text-decoration: none;
+  }
+  
+  .back-link:hover {
+    text-decoration: underline;
+  }
+
+  .feed-link-container {
+    text-align: center; /* Centrar horizontalmente */
+    margin-top: 40px; /* Espaciado superior */
+    margin-bottom: 20px;
+  }
+
+
+/* Estilo para convertir el botón en un enlace */
+.edit-delete-links {
+    display: flex; /* Mostrar los enlaces en línea */
+    gap: 10px; /* Espacio entre los enlaces */
+  }
+  
+  .edit-link {
+    text-decoration: none;
+    color: blue;
+  }
+
+  .edit-link:hover {
+    color: #2980b9; /* Cambia el color a un tono más oscuro de azul al hacer hover */
+    text-decoration: underline; /* Subraya el enlace al hacer hover */
+    transition: color 0.3s, text-decoration 0.3s; /* Transición suave en color y subrayado */
+  }
+  
+  .delete-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: inherit;
+    color: red; /* Color rojo para el enlace de eliminar */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* Transición suave en color y fondo */
+  }
+  
+  .delete-button:hover {
+    color: #e74c3c; /* Color de texto rojo más oscuro al hacer hover */
+    text-decoration: underline; /* Elimina el subrayado al hacer hover */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Transición suave en color y fondo */
+  }
+  
+
+  /*BOTONES*/
+  .feed {
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    color: #555;
+    transition: background-color 0.3s;
+    background-color: #f7f7f7;
+    margin-top: 30px;
+  }
+
+  .feed:hover {
+    background-color: #ccc;
+  }
+
+  .back-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .back-link,
+  .feed-link {
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    color: #555;
+    transition: background-color 0.3s;
+    background-color: #f7f7f7;
+    margin: 30px 80px;
+  }
+  
+  .back-link:hover,
+  .feed-link:hover {
+    background-color: #ccc;
+  }
+
+
+/* Form de Post*/
+/* Estilos para el formulario de edición de post */
+.post-form {
+    background: linear-gradient(to bottom, #f0f0f0, #d9d9d96b); /* Fondo de degradado gris */
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .post-form .error-messages {
+    color: red;
+    margin-bottom: 10px;
+  }
+  
+  .post-form .form-field {
+    margin-bottom: 15px;
+  }
+  
+  .post-form .form-label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  .post-form .form-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .post-form .image-list {
+    background-color: #ffffff;
+    padding: 10px; /* Espacio interno */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto; /* Margen y centrado horizontal */
+    border: 1px dashed #ccc; /* Borde punteado de 1px en color gris */
+    max-width: 80%; /* Ancho máximo */
+  }
+  
+  .post-form .image-list img {
+    max-width: 100%; /* Máximo ancho de la imagen */
+    max-height: 200px; /* Altura máxima de la imagen */
+    border: 2px solid #ccc; /* Borde sólido de 2px en color gris */
+  }
+  
+  .post-form .form-actions {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+
+  /*Form Standard*/
+  .form-field-standar {
+    margin: 20px auto;
+    padding-bottom: 30px;
+  }
+
+.form-label {
+    display: block;
+    font-weight: bold;
+  }
+  
+.form-input-standar {
+    width: 100%;
+    padding: 15px 0 60px 6px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+
+
+/* Perfil */
+.banner{
+    background-image: url("banner.jpg");
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    margin-top: -90px;
+    margin-bottom: 15px;
+
+}
+
+/* Estilos específicos para la vista profile */
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cards por fila */
+    grid-gap: 20px; /* Espacio entre las cards */
+    margin-top: 60px;
+  }
+  
+  .profile-item.card {
+    border: 1px solid #ddd; /* Borde para las cards */
+    background-color: #fff; /* Fondo blanco para las cards */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .profile-item.card:hover {
+    transform: translateY(-5px); /* Efecto de levantamiento al hacer hover */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .profile-item .card-img-top {
+    max-width: 100%;
+    height: 200px; /* Altura deseada de la imagen */
+    object-fit: cover; /* Ajustar la imagen manteniendo la proporción y cubriendo el área */
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  
+  .profile-item .card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .profile-item .card-title.post-title {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #333; /* Cambia el color del texto según tu preferencia */
+  }
+  
+  .profile-item .card-text {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .profile-item .card-text.post-date {
+    font-size: 12px;
+    color: #999;
+    margin-top: 10px;
+  }
+  
+/* Footer*/
+.bg-footer {
+    background: linear-gradient(to bottom, rgba(126, 74, 156, 0.5), rgba(230, 85, 56, 0.5));
+    margin-top: 80px;
+  }
+  
+  .bg-footer p {
+    color: #fff;
+    font-size: 14px;
+  }
+  
+/*USER FORMS*/
+/* Estilos para el contenedor del formulario de registro */
+/* Estilos para el contenedor de formularios de registro */
+.container-registration-form {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 500px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centrar el contenedor horizontalmente */
+  }
+  
+  /* Estilos para los campos de formulario */
+  .container-registration-form .field {
+    margin-bottom: 15px;
+  }
+  
+  /* Estilos para los botones de formulario */
+  .container-registration-form .actions {
+    text-align: left; /* Alinear el contenido a la izquierda */
+    margin-top: 20px;
+  }
+  
+  .container-registration-form .actions input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .container-registration-form .actions input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  

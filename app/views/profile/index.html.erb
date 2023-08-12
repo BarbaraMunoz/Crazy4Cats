@@ -1,0 +1,44 @@
+
+
+<!-----------------------------------Banner/img Starts-------------------->
+<div class="banner">
+    <div class="banner-title d-flex flex-column justify-content-center align-items-center">
+        <%= image_tag("avatar", class: "rounded-circle d-none d-md-block py-5", style: "width:8%") %>
+        <h3 class="text-light"><%= @user.username %></h3>
+        <p class="text-light">Agrega aquí tu descripción o información personal.</p>
+    </div>
+
+    <div class="banner-end d-flex justify-content-center align-items-end">
+        <ul class="nav text-light">
+        <li class="nav-item nav-link active">Fotos</li>
+        <li class="nav-item nav-link">Otros</li>
+        <li class="nav-item nav-link">Más</li>
+        </ul>
+    </div>
+    </div>
+
+    <%= link_to "Nuevo Post", new_post_path, class: "btn btn-gradient" %>
+    <!--------------------Mis Fotos (Recorrido mostrando mis fotos)----------------->
+
+    <div class="profile-grid">
+    <% @posts.each do |post| %>
+        <div class="profile-item card">
+        <% if post.images.attached? %>
+            <%= link_to post do %>
+            <%= image_tag post.images.first, class: "card-img-top img-fluid" %>
+            <% end %>
+        <% end %>
+        <div class="card-body">
+            <h4 class="card-title post-title"><%= post.title %></h4>
+            <p class="card-text"><%= truncate(post.content, length: 150) %></p>
+            <p class="card-text post-date"><%= post.created_at.strftime('%d de %B de %Y') %></p>
+        </div>
+        </div>
+    <% end %>
+    </div>
+
+
+
+
+
+

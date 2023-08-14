@@ -29,6 +29,7 @@
 - Acts As Votable (Reacciones y Votos)
 - Pagy (Paginación)
 - Pg-Search (Búsquedas)
+- Figaro (Gestionar las variables de entorno) 
 
 ## 📄 
 Proyecto desarrollado por [Bárbara Muñoz Salas](https://github.com/BarbaraMunoz)

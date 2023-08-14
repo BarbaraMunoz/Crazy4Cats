@@ -23,8 +23,8 @@ default: &default
 
 development:
   <<: *default
-  username: barbara
-  password: admin1234.
+  username: <%= ENV["user_db"]%> 
+  password: <%= ENV["pass_db"]%> 
   database: catsdemo_development
 
   # The specified database role being used to connect to postgres.

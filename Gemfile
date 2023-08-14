@@ -84,3 +84,5 @@ gem "popper_js", "~> 2.11"
 gem 'pg_search'
 
 gem 'pagy'
+
+gem "figaro", "~> 1.2"
